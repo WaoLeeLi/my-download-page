@@ -1,13 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Download Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brochure Download Center</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    li {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    li:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      a {
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-  <h1>点击下方按钮下载文件</h1>
-  <a href="中机抬头纸.pdf" download>
-    <button style="padding: 10px 20px; font-size: 18px;">点击下载</button>
-  </a>
+<body>
+  <div class="overlay">
+    <h1>Download Brochures</h1>
+    <ul>
+      <li><a href="Genertec%20Group%20Brochures.pdf" download>📄 Genertec Group Brochures</a></li>
+      <li><a href="Genertec%20International%20Brochures.pdf" download>📄 Genertec International Brochures</a></li>
+      <li><a href="Neusoft%20Medical%20Brochures.pdf" download>📄 Neusoft Medical Brochures</a></li>
+      <li><a href="Neusoft%20Medical%20Systems-Product%20Catalog-2025.pdf" download>📄 Neusoft Medical Systems – Product Catalog 2025</a></li>
+    </ul>
+  </div>
 </body>
 </html>
