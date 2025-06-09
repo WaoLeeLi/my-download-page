@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download Center</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('your-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 2rem;
+      text-shadow: 1px 1px 2px #000;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .file-block {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+    }
+    .file-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .download-count {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #00bfff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .download-link:hover {
+      background: #0099cc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Download Center</h1>
+  <p class="subtitle">abcdefg</p>
+
+  <div class="file-block">
+    <div class="file-title">Genertec Group Brochures.pdf <span class="download-count" id="count-genertec-group"></span></div>
+    <a href="Genertec Group Brochures.pdf" class="download-link" onclick="countClick('genertec-group')">Download</a>
+  </div>
+
+  <div class="file-block">
+    <div class="file-title">Genertec International Brochures.pdf <span class="download-count" id="count-genertec-international"></span></div>
+    <a href="Genertec International Brochures.pdf" class="download-link" onclick="countClick('genertec-international')">Download</a>
+  </div>
+
+  <div class="file-block">
+    <div class="file-title">Neusoft Medical Brochures.pdf <span class="download-count" id="count-neusoft-brochures"></span></div>
+    <a href="Neusoft Medical Brochures.pdf" class="download-link" onclick="countClick('neusoft-brochures')">Download</a>
+  </div>
+
+  <div class="file-block">
+    <div class="file-title">Neusoft Medical Systems-Product Catalog-2025.pdf <span class="download-count" id="count-neusoft-catalog"></span></div>
+    <a href="Neusoft Medical Systems-Product Catalog-2025.pdf" class="download-link" onclick="countClick('neusoft-catalog')">Download</a>
+  </div>
+
+  <script>
+    const keys = ['genertec-group', 'genertec-international', 'neusoft-brochures', 'neusoft-catalog'];
+
+    // 读取每个点击计数
+    keys.forEach(key => {
+      fetch(`https://api.countapi.xyz/get/waolili.com/${key}`)
+        .then(res => res.json())
+        .then(data => {
+          const el = document.getElementById('count-' + key);
+          if (el) el.textContent = `(Downloaded ${data.value} times)`;
+        });
+    });
+
+    // 点击时增加计数
+    function countClick(key) {
+      fetch(`https://api.countapi.xyz/hit/waolili.com/${key}`);
+    }
+  </script>
+
+</body>
+</html>
